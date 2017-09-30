@@ -1,33 +1,28 @@
 <?php 
 
-/**
-* 
-*/
+define("PATH", "/etc/squid3/");
+
 class FileGenerator {
 
-	define("PATH", "/etc/squid3/");
+	private $contador = 0;
 
-	function criaArquivo($nomeArquivo, $regras){
-
-
-
-		//Abre arquivo para escrever
+	static function abreArquivo($nomeArquivo, $sites){
+		$nomeArquivo .= constant("PATH") . $nomeArquivo;
 		$arquivo = fopen($nomeArquivo, "w");	
 
-		fwrite($arquivo, $regras);
+		fwrite($arquivo, $sites);
 
 		fclose($arquivo);
 	}
 
-	public static function geraArquivoConf($regras){
-		
-		abreArquivo(constant("PATH") . 'squid.conf', $regras);
+	static function geraArquivoConf($regras){
+		$arquivo = "squid.conf";
+		FileGenerator::abreArquivo($arquivo, $regras);
 	}
 
-	public static function geraArquivoAutenticacao(){
-		abreArquivo(constant("PATH") . 'squid.conf', $regras);	
+	static function geraArquivoAutenticacao(){
+		FileGenerator::abreArquivo(constant("PATH") . "squid.conf", $regras);	
 	}
 }
-	
 
 ?>
