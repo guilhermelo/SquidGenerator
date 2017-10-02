@@ -4,8 +4,6 @@ define("PATH", "/etc/squid3/");
 
 class FileGenerator {
 
-	private $contador = 0;
-
 	static function abreArquivo($nomeArquivo, $sites){
 		$nomeArquivo .= constant("PATH") . $nomeArquivo;
 		$arquivo = fopen($nomeArquivo, "w");	
@@ -21,7 +19,7 @@ class FileGenerator {
 	}
 
 	static function geraArquivoAutenticacao(){
-		FileGenerator::abreArquivo(constant("PATH") . "squid.conf", $regras);	
+		FileGenerator::abreArquivo("squid.conf", $regras);	
 	}
 }
 

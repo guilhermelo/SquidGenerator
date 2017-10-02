@@ -5,6 +5,7 @@
 	$arquivoLiberados = "liberados";
 
 	$sitesLiberados = filter_input(INPUT_POST, 'liberados');
+	bloqPorIP
 
 	$regras = montaURLRegex($arquivoLiberados);
 
@@ -15,7 +16,7 @@
 	FileGenerator::geraArquivoConf($regras);
 
 	function montaURLRegex($nomeArquivo){
-		$regra = "acl {$nomeArquivo} url_regex -i \"/etc/squid3/liberados\" ";
+		$regra = "acl {$nomeArquivo} url_regex -i \"./etc/squid3/liberados\" ";
 		$regra .= "http_access allow {$nomeArquivo}";
 		$regra .= "http_access deny all";
 
