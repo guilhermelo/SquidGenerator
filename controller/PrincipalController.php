@@ -1,11 +1,14 @@
 <?php 
-	require("../util/FileGenerator.php");
+	require("../util/FileUtil.class.php");
+	require("../model/Configuracao.class.php");
 	
 	//Variáveis globais
 	$arquivoLiberados = "liberados";
 
 	$sitesLiberados = filter_input(INPUT_POST, 'liberados');
-	bloqPorIP
+	$hrInicio = filter_input(INPUT_POST, 'hrInicio');
+	$hrFim = filter_input(INPUT_POST, 'hrFim');
+
 
 	$regras = montaURLRegex($arquivoLiberados);
 

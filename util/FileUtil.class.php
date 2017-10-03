@@ -21,6 +21,10 @@ class FileGenerator {
 	static function geraArquivoAutenticacao(){
 		FileGenerator::abreArquivo("squid.conf", $regras);	
 	}
+
+	static function excluiArquivo($arquivo){
+		unlink($arquivo);
+	}
 }
 
 ?>
