@@ -10,7 +10,7 @@ class Configuracao{
 	private $percMaxCacheSwap;
 
 
-    public Configuracao($hostname, $qtdeRam, $tamMaxArqRam, $tamMaxArqDisco, $tamMinArqDisco, $percMinCacheSwap, $percMaxCacheSwap){
+    function __construct($hostname, $qtdeRam, $tamMaxArqRam, $tamMaxArqDisco, $tamMinArqDisco, $percMinCacheSwap, $percMaxCacheSwap){
 
         $this->hostname = $hostname;
         $this->qtdeRam = $qtdeRam;

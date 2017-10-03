@@ -6,8 +6,6 @@ define('SENHA', '');
 class Conexao{
 
 	private $instance;
-
-	private Conexao(){}
 	
 	public static function getConnection(){
 		if(is_null($instance)){

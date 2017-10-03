@@ -16,8 +16,8 @@
 
 	$daoConfiguracao = new ConfiguracaoDAO();
 
+	print_r($conf);
 	$daoConfiguracao->insereConfiguracao($conf);
-
-	header('Location: ../view/configuracao.php');
+	echo "Uhu";
 
 ?>

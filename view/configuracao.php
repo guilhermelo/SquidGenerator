@@ -5,7 +5,7 @@
 		<h1>Configurações do Squid</h1>
 	</div>
 	<hr>
-	<form action="../controller/ConfiguracaoController.php">
+	<form action="../controller/ConfiguracaoController.php" method="POST">
 		<div class="row">
 			<div class="col-md-3">
 				<!-- cache_mem -->
