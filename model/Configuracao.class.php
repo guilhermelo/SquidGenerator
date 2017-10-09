@@ -8,19 +8,11 @@ class Configuracao{
 	private $tamMinArqDisco;
 	private $percMinCacheSwap;
 	private $percMaxCacheSwap;
+    private $tamArquivoCache;
+    private $qtdePastas;
+    private $qtdeSubPastas;
 
-
-    function __construct($hostname, $qtdeRam, $tamMaxArqRam, $tamMaxArqDisco, $tamMinArqDisco, $percMinCacheSwap, $percMaxCacheSwap){
-
-        $this->hostname = $hostname;
-        $this->qtdeRam = $qtdeRam;
-        $this->tamMaxArqRam = $tamMaxArqRam;
-        $this->tamMaxArqDisco = $tamMaxArqDisco;
-        $this->tamMinArqDisco = $tamMinArqDisco;
-        $this->percMinCacheSwap = $percMinCacheSwap;
-        $this->percMaxCacheSwap = $percMaxCacheSwap;
-    }
-
+    function __construct(){}
 
     /**
      * @return mixed
@@ -158,6 +150,66 @@ class Configuracao{
     public function setPercMaxCacheSwap($percMaxCacheSwap)
     {
         $this->percMaxCacheSwap = $percMaxCacheSwap;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTamArquivoCache()
+    {
+        return $this->tamArquivoCache;
+    }
+
+    /**
+     * @param mixed $tamArquivoCache
+     *
+     * @return self
+     */
+    public function setTamArquivoCache($tamArquivoCache)
+    {
+        $this->tamArquivoCache = $tamArquivoCache;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQtdePastas()
+    {
+        return $this->qtdePastas;
+    }
+
+    /**
+     * @param mixed $qtdePastas
+     *
+     * @return self
+     */
+    public function setQtdePastas($qtdePastas)
+    {
+        $this->qtdePastas = $qtdePastas;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQtdeSubPastas()
+    {
+        return $this->qtdeSubPastas;
+    }
+
+    /**
+     * @param mixed $qtdeSubPastas
+     *
+     * @return self
+     */
+    public function setQtdeSubPastas($qtdeSubPastas)
+    {
+        $this->qtdeSubPastas = $qtdeSubPastas;
 
         return $this;
     }

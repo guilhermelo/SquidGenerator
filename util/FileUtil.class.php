@@ -2,24 +2,25 @@
 
 define("PATH", "/etc/squid3/");
 
-class FileGenerator {
+class FileUtil {
 
-	static function abreArquivo($nomeArquivo, $sites){
-		$nomeArquivo .= constant("PATH") . $nomeArquivo;
+	static function abreArquivo($nomeArquivo, $regras){
+		//$nomeArquivo .= constant("PATH") . $nomeArquivo;
+
 		$arquivo = fopen($nomeArquivo, "w");	
 
-		fwrite($arquivo, $sites);
+		fwrite($arquivo, $regras);
 
 		fclose($arquivo);
 	}
 
 	static function geraArquivoConf($regras){
 		$arquivo = "squid.conf";
-		FileGenerator::abreArquivo($arquivo, $regras);
+		self::abreArquivo($arquivo, $regras);
 	}
 
 	static function geraArquivoAutenticacao(){
-		FileGenerator::abreArquivo("squid.conf", $regras);	
+		self::abreArquivo("squid.conf", $regras);	
 	}
 
 	static function excluiArquivo($arquivo){

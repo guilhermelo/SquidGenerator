@@ -1,5 +1,6 @@
 <?php 
 	require_once("../util/FileUtil.class.php");
+	require_once("../helper/helpers.php");
 	require_once("../model/Configuracao.class.php");
 	require_once("../dao/ConfiguracaoDAO.class.php");
 
@@ -10,14 +11,45 @@
 	$tamMinArqDisco = filter_input(INPUT_POST, 'tamMinArqDisco');
 	$cacheSwapLow = filter_input(INPUT_POST, 'cacheSwapLow');
 	$cacheSwapHigh = filter_input(INPUT_POST, 'cacheSwapHigh');
+	$tamArquivoCache = filter_input(INPUT_POST, 'tamArquivoCache'); 
+	$qtdePastas = filter_input(INPUT_POST, 'qtdePastas');
+	$qtdeSubPastas = filter_input(INPUT_POST, 'qtdeSubPastas');
+
+	$regrasFinais = "";
 
 
-	$conf = new Configuracao($hostname, $qtdeRam, $tamMaxArqRam, $tamMaxArqDisco, $tamMinArqDisco, $percMinCacheSwap, $percMaxCacheSwap);
+	$conf = new Configuracao($hostname, $qtdeMemRAM, $tamMaxArqRAM, $tamMaxArqDisco, 
+		$tamMinArqDisco, $cacheSwapLow, $cacheSwapHigh, $tamArquivoCache, $qtdePastas, $qtdeSubPastas);
+
+	$conf->setHostname($hostname);
+	$conf->setQtdeRam($qtdeMemRAM);
+	$conf->setTamMaxArqRam($tamMaxArqRAM);
+	$conf->setTamMaxArqDisco($tamMaxArqDisco);
+	$conf->setTamMinArqDisco($tamMinArqDisco);
+	$conf->setPercMinCacheSwap($cacheSwapLow);
+	$conf->setPercMaxCacheSwap($cacheSwapHigh);
+	$conf->setTamArquivoCache($tamArquivoCache);
+	$conf->setQtdePastas($qtdePastas);
+	$conf->setQtdeSubPastas($qtdeSubPastas);
+	$conf->setUsuario($usuario);
+	$conf->setSenha($senha);
 
 	$daoConfiguracao = new ConfiguracaoDAO();
 
-	print_r($conf);
-	$daoConfiguracao->insereConfiguracao($conf);
-	echo "Uhu";
+	if($daoConfiguracao->existeConfiguracao($conf->getHostname())) {
+		$daoConfiguracao->alteraConfiguracao($conf);
+	} else {
+		$daoConfiguracao->insereConfiguracao($conf);
+	}
+
+	$regrasFinais .= montaConfiguracoes($hostname, $qtdeMemRAM, $tamMaxArqRAM, $tamMaxArqDisco, $tamMinArqDisco, $cacheSwapLow, $cacheSwapHigh, $tamArquivoCache, $qtdePastas, $qtdeSubPastas, $usuario, $senha);
+
+	$regrasFinais .= montaAutenticacao();
+
+	FileUtil::geraArquivoConf($regrasFinais);
+
+
+	header('Location: ../view/configuracao.php');
+
 
 ?>

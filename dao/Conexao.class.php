@@ -1,18 +1,20 @@
 <?php 
 
-define('USUARIO', 'admin');
-define('SENHA', '');
+define('USUARIO', 'guilherme');
+define('SENHA', 'guilherme');
 
 class Conexao{
 
-	private $instance;
+	private static $instance;
+
+	private function __construct(){}
 	
 	public static function getConnection(){
-		if(is_null($instance)){
-			$instance = new PDO('mysql:host=localhost;dbname=squid_generator', USUARIO, SENHA);
+		if(empty(self::$instance)){
+			self::$instance = new PDO('mysql:host=localhost;dbname=squid_generator', USUARIO, SENHA);
 		}
 
-		return $instance;
+		return self::$instance;
 	}
 }
 
