@@ -41,11 +41,9 @@ class ConfiguracaoDAO{
 
 			$connection = Conexao::getConnection();
 
-			$query = " SELECT HOSTNAME FROM CONFIGURACAO WHERE HOSTNAME = :hostname ";
+			$query = " SELECT HOSTNAME FROM CONFIGURACAO";
 
 			$stmt = $connection->prepare($query);
-
-			$stmt->bindValue(':hostname', $hostname);
 
 			$stmt->execute();
 

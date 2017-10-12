@@ -18,8 +18,7 @@
 	$regrasFinais = "";
 
 
-	$conf = new Configuracao($hostname, $qtdeMemRAM, $tamMaxArqRAM, $tamMaxArqDisco, 
-		$tamMinArqDisco, $cacheSwapLow, $cacheSwapHigh, $tamArquivoCache, $qtdePastas, $qtdeSubPastas);
+	$conf = new Configuracao();
 
 	$conf->setHostname($hostname);
 	$conf->setQtdeRam($qtdeMemRAM);
@@ -31,8 +30,6 @@
 	$conf->setTamArquivoCache($tamArquivoCache);
 	$conf->setQtdePastas($qtdePastas);
 	$conf->setQtdeSubPastas($qtdeSubPastas);
-	$conf->setUsuario($usuario);
-	$conf->setSenha($senha);
 
 	$daoConfiguracao = new ConfiguracaoDAO();
 
@@ -42,11 +39,11 @@
 		$daoConfiguracao->insereConfiguracao($conf);
 	}
 
-	$regrasFinais .= montaConfiguracoes($hostname, $qtdeMemRAM, $tamMaxArqRAM, $tamMaxArqDisco, $tamMinArqDisco, $cacheSwapLow, $cacheSwapHigh, $tamArquivoCache, $qtdePastas, $qtdeSubPastas, $usuario, $senha);
+	$regrasFinais .= montaConfiguracoes($hostname, $qtdeMemRAM, $tamMaxArqRAM, $tamMaxArqDisco, $tamMinArqDisco, $cacheSwapLow, $cacheSwapHigh, $tamArquivoCache, $qtdePastas, $qtdeSubPastas);
 
-	$regrasFinais .= montaAutenticacao();
+//	$regrasFinais .= montaAutenticacao();
 
-	FileUtil::geraArquivoConf($regrasFinais);
+//	FileUtil::geraArquivoConf($regrasFinais);
 
 
 	header('Location: ../view/configuracao.php');

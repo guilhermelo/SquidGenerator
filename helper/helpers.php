@@ -1,5 +1,7 @@
 <?php 
 
+	define('URL_FILE', '/etc/squid3/');
+
 	function montaConfiguracoes($hostname, $qtdeMemRAM, $tamMaxArqRAM, $tamMaxArqDisco, 
 		$tamMinArqDisco, $cacheSwapLow, $cacheSwapHigh, $tamArquivoCache, $qtdePastas, $qtdeSubPastas){
 
@@ -49,7 +51,9 @@
 	function montaAutenticacao($usuario, $senha) {
 
 		// Cria arquivo pra guardar usuário e senha
-		shell_exec("touch /etc/squid3/squid_passwd");
+		$senha = shell_exec("sudo touch /etc/squid3/squid_passwd");
+
+		echo $senha;
 
 		//Executa comando no shell para criar usuário
 		$retorno = shell_exec("htpasswd /etc/squid3/squid_passwd {$usuario}");
@@ -63,18 +67,28 @@
 		$regraAutenticacao .= "auth_param basic realm squid \n";
 		$regraAutenticacao .= "auth_param basic program /usr/lib/squid3/basic_ncsa_auth /etc/squid3/squid_passwd \n";
 
-		$regraAutenticacao .= "acl autenticados proxy_auth REQUIRED";
+		$regraAutenticacao .= "acl autenticados proxy_auth REQUIRED \n";
 
 		return $regraAutenticacao;
 	}
 
-	function montaRegrasPorRegex($nomeArquivo){
-		$regra = "acl {$nomeArquivo} url_regex -i \"./etc/squid3/liberados\" ";
+	function montaRegrasPorRegex($nomeACL){
+		$regra = "acl {$nomeACL} url_regex -i \"". URL_FILE . "liberados\" \n";
 		return $regra;	
 	}
 
-	function montaRegrasPorIP($ipBloqueado, $nomeArquivo){
-		$regra = "acl {$nomeArquivo} dst {$ipBloqueado}";
+	function montaRegraPorHora($hrInicio, $hrFim, $nomeACL){
+		$regra = "acl {$nomeACL} time {$hrInicio}-{$hrFim} \n";
+		return $regra;
+	}
+
+	function montaRegraPorExtensao($extensoes, $nomeACL){
+		$regra = "acl {$nomeACL} url_regex -i {$extensoes} \n";
+		return $regra;
+	}
+
+	function montaRegraIPSites($ip, $nomeACL){
+		$regra = "acl {$nomeACL} dst {$ip}";
 		return $regra;
 	}
 

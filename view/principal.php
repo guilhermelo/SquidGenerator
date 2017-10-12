@@ -1,4 +1,13 @@
-<?php require_once('../view/header.php'); ?>
+<?php 
+
+	require_once('../view/header.php'); 
+	require_once('../dao/PrincipalDAO.class.php');
+
+	$principalDAO = new PrincipalDAO();
+
+	$p = $principalDAO->selecionaRegras();
+
+?>
 		<div class="container">
 			<form action="../controller/PrincipalController.php" method="POST">
 				<div class="row">
@@ -10,30 +19,32 @@
 					<div class="col-md-2"></div>
 					<div class="col-md-4">
 						<label for="liberadosHr"><p>Sites liberados: </p></label>	
-						<textarea cols="10" rows="4" class="form-control" name="sitesLiberados"></textarea>
+						<textarea cols="10" rows="4" class="form-control" name="sitesLiberados">
+							<?= $p->getSitesLiberados() ?>
+						</textarea>
 					</div>
 					<div class="col-md-4">
-						<label for="sitesPorIP"><p>Sites bloqueados por IP: </p></label>	
-						<textarea cols="10" rows="4" class="form-control" name="sitesPorIP"></textarea>
+						<label for="sitesPorIP"><p>IPs dos sites liberados: </p></label>	
+						<input type="text" class="form-control" name="sitesPorIP" value="<?= $p->getIpLiberado() ?>">
 					</div>
 				</div>
 				<br/>
 				<div class="row">
 					<div class="col-md-3">
-						<input type="radio" name="porHora" value="" id="porHora">Definir por hora
+						<input type="checkbox" name="porHora" value="porHora" id="porHora" <?= $p->getFgPorHora() === "S" ? "checked" : "" ?>>Definir por hora
 					</div>
 					<div class="col-md-6">
-						<input type="radio" name="porExtensao" value="" id="porExtensao">Definir Extensões
+						<input type="checkbox" name="porExtensao" value="porExtensao" id="porExtensao" <?= $p->getFgPorExtensao() === "S" ? "checked" : "" ?>>Definir Extensões
 					</div>
 					<div class="col-md-3">
-						<input type="radio" name="porAutenticacao" value="" id="porAutenticacao">Definir Autenticação
+						<input type="checkbox" name="porAutenticacao" value="porAutenticacao" id="porAutenticacao" <?= $p->getFgPorAutenticacao() === "S" ? "checked" : "" ?>>Definir Autenticação
 					</div>
 				</div>
 				<br/>
 				<div class="row">
 					<div class="col-md-2">
 						<label>Hora Inicial: </label>
-						<input type="text" name="hrInicio" value="" id="hrInicio" class="form-control" disabled>	
+						<input type="text" name="hrInicio" value="<?= $p->getHrInicial() ?>" id="hrInicio" class="form-control" disabled>	
 					</div>
 					<div class="col-md-5">
 						<h3 style="text-align: center;">Extensões bloqueadas</h3>
@@ -46,29 +57,29 @@
 				<div class="row">
 					<div class="col-md-2">
 						<label>Hora Final: </label>
-						<input type="text" name="hrFim" value="" id="hrFim" class="form-control" disabled>	
+						<input type="text" name="hrFim" value="<?= $p->getHrFim() ?>" id="hrFim" class="form-control" disabled>	
 					</div>
 					<div class="col-md-1"></div>
 					<div class="col-md-1">
-						<input type="checkbox" name="extPNG" value="" id="extPNG" disabled> PNG
+						<input type="checkbox" name="extPNG" value="extPNG" id="extPNG" disabled <?= !empty($p->getExtPNG()) ? "checked" : "" ?>> PNG
 					</div>
 					<div class="col-md-1">
-						<input type="checkbox" name="extExe" value="" id="extExe" disabled> EXE
+						<input type="checkbox" name="extExe" value="extEXE" id="extExe" disabled <?= !empty($p->getExtEXE()) ? "checked" : "" ?>> EXE
 					</div>
 					<div class="col-md-1">
-						<input type="checkbox" name="extPDF" value="" id="extPDF" disabled> PDF
+						<input type="checkbox" name="extPDF" value="extPDF" id="extPDF" disabled <?= !empty($p->getExtPDF()) ? "checked" : "" ?>> PDF
 					</div>
 					<div class="col-md-1">
-						<input type="checkbox" name="extGIF" value="" id="extGIF" disabled> GIF		
+						<input type="checkbox" name="extGIF" value="extGIF" id="extGIF" disabled <?= !empty($p->getExtGIF()) ? "checked" : "" ?>> GIF		
 					</div>
 					<div class="col-md-1"></div>
 					<div class="col-md-2">
 						<label for="usuario">Usuário: </label>
-						<input type="text" name="usuario" value="" id="usuario" class="form-control" disabled>
+						<input type="text" name="usuario" value="<?= $p->getUsuario() ?>" id="usuario" class="form-control" disabled>
 					</div>
 					<div class="col-md-2">
 						<label for="senha">Senha: </label>
-						<input type="text" name="senha" value="" id="senha" class="form-control" disabled>
+						<input type="text" name="senha" value="<?= $p->getSenha() ?>" id="senha" class="form-control" disabled>
 					</div>	
 				</div>
 				<br/>
