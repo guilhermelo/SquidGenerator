@@ -39,8 +39,6 @@
 		$daoConfiguracao->insereConfiguracao($conf);
 	}
 
-	$regrasFinais .= montaConfiguracoes($hostname, $qtdeMemRAM, $tamMaxArqRAM, $tamMaxArqDisco, $tamMinArqDisco, $cacheSwapLow, $cacheSwapHigh, $tamArquivoCache, $qtdePastas, $qtdeSubPastas);
-
 //	$regrasFinais .= montaAutenticacao();
 
 //	FileUtil::geraArquivoConf($regrasFinais);

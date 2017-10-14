@@ -2,6 +2,7 @@
 	require("../util/FileUtil.class.php");
 	require("../model/Principal.class.php");
 	require('../dao/PrincipalDAO.class.php');
+	require("../dao/ConfiguracaoDAO.class.php");
 	require("../helper/helpers.php");
 	
 	//ACL
@@ -27,6 +28,11 @@
 	$extGIF = filter_input(INPUT_POST, 'extGIF');
 	$usuario = filter_input(INPUT_POST, 'usuario');
 	$senha = filter_input(INPUT_POST, 'senha');
+
+	$confDAO = new ConfiguracaoDAO();
+	$conf = $confDAO->selecionarConfiguracao();
+
+	$regras .= montaConfiguracoes($conf->getHostname(), $conf->getQtdeRam(), $conf->getTamMaxArqRam(), $conf->getTamMaxArqDisco(), $conf->getTamMinArqDisco(), $conf->getPercMinCacheSwap(), $conf->getPercMaxCacheSwap(), $conf->getTamArquivoCache(), $conf->getQtdePastas(), $conf->getQtdeSubPastas());
 
 	//Verificação do usuário para autenticação
 	if(isset($usuario) && isset($senha)){
