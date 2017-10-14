@@ -1,11 +1,11 @@
 <?php 
 
-define("PATH", "/etc/squid3/");
+define("PATH", "../../../../../etc/squid3/");
 
 class FileUtil {
 
 	static function abreArquivo($nomeArquivo, $regras){
-		//$nomeArquivo .= constant("PATH") . $nomeArquivo;
+		$nomeArquivo = PATH . $nomeArquivo;
 
 		$arquivo = fopen($nomeArquivo, "w");	
 
@@ -20,7 +20,7 @@ class FileUtil {
 	}
 
 	static function geraArquivoAutenticacao(){
-		self::abreArquivo("squid.conf", $regras);	
+		self::abreArquivo("squid.conf", $regras);
 	}
 
 	static function excluiArquivo($arquivo){

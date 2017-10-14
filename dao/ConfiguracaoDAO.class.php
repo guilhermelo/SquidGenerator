@@ -26,8 +26,6 @@ class ConfiguracaoDAO{
 			$stmt->bindValue(':tam_arquivo_cache', $conf->getTamArquivoCache());
 			$stmt->bindValue(':qtde_pastas', $conf->getQtdePastas());
 			$stmt->bindValue(':qtde_sub_pastas', $conf->getQtdeSubPastas());
-			$stmt->bindValue(':usuario', $conf->getUsuario());
-			$stmt->bindValue(':senha', $conf->getSenha());
 
 			$stmt->execute();
 

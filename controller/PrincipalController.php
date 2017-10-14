@@ -81,7 +81,7 @@
 		$regras .= " {$ACLporHora}"; 		
 	}
 
-	if(!empty($ACLPorIP)){
+	if(!empty($sitesPorIP)){
 		$regras .= " {$ACLPorIP}";
 	}
 
