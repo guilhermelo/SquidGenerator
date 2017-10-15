@@ -43,6 +43,7 @@
 
 //	FileUtil::geraArquivoConf($regrasFinais);
 
+	shell_exec("service squid3 restart");
 
 	header('Location: ../view/configuracao.php');
 

@@ -40,7 +40,10 @@
 		// Quantidade de pastas
 		// Quantidade de subpastas
 		$regras .= "cache_dir ufs /var/spool/squid3 {$tamArquivoCache} {$qtdePastas} {$qtdeSubPastas} \n";
-		$regras .= "cache_access_log /value/log/squid3/access.log \n";
+		$regras .= "cache_access_log /var/log/squid3/access.log \n";
+
+//		$regras .= "acl localhost dst 192.168.0.1\n";
+//		$regras .=  "http_access allow localhost \n";
 
 		return $regras;
 	}
@@ -91,5 +94,4 @@
 		$regra = "acl {$nomeACL} dst {$ip}";
 		return $regra;
 	}
-
  ?>

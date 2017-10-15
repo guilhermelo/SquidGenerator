@@ -19,9 +19,7 @@
 					<div class="col-md-2"></div>
 					<div class="col-md-4">
 						<label for="liberadosHr"><p>Sites liberados: </p></label>	
-						<textarea cols="10" rows="4" class="form-control" name="sitesLiberados">
-							<?= $p->getSitesLiberados() ?>
-						</textarea>
+						<textarea cols="10" rows="4" class="form-control" name="sitesLiberados"><?=$p->getSitesLiberados()?></textarea>
 					</div>
 					<div class="col-md-4">
 						<label for="sitesPorIP"><p>IPs dos sites liberados: </p></label>	

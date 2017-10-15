@@ -1,7 +1,7 @@
 <?php 
 	require("../util/FileUtil.class.php");
 	require("../model/Principal.class.php");
-	require('../dao/PrincipalDAO.class.php');
+	require("../dao/PrincipalDAO.class.php");
 	require("../dao/ConfiguracaoDAO.class.php");
 	require("../helper/helpers.php");
 	
@@ -23,7 +23,7 @@
 	$porExtensao = filter_input(INPUT_POST, 'porExtensao');
 	$porAutenticacao = filter_input(INPUT_POST, 'porAutenticacao');
 	$extPNG = filter_input(INPUT_POST, 'extPNG');
-	$extExe = filter_input(INPUT_POST, 'extEXE');
+	$extExe = filter_input(INPUT_POST, 'extExe');
 	$extPDF = filter_input(INPUT_POST, 'extPDF');
 	$extGIF = filter_input(INPUT_POST, 'extGIF');
 	$usuario = filter_input(INPUT_POST, 'usuario');
@@ -66,8 +66,9 @@
 	}
 
 	if(!empty($sitesLiberados)){
-		$regras .= montaRegrasPorRegex($ACLLiberados);	
+		$regras .= montaRegrasPorRegex($ACLLiberados);
 		$arquivoLiberados = $ACLLiberados;
+
 		//Gera arquivo com sites liberados
 		FileUtil::abreArquivo($arquivoLiberados, $sitesLiberados);
 	}
@@ -77,24 +78,34 @@
 		$regras .= montaRegraIPSites($sitesPorIP, $ACLPorIP);
 	}
 
-	$regras .= "http_access allow {$ACLLiberados}"; 
+	if(empty($porExtensao)){
+
+		$regras .= "http_access allow {$ACLLiberados}";
+
+		/*if(!empty($porExtensao)){
+			$regras .= " {$ACLporExtensao}";
+		}*/
+
+		if(!empty($porHora)){
+			$regras .= " {$ACLporHora}";
+		}
+
+		if(!empty($sitesPorIP)){
+			$regras .= " {$ACLPorIP}";
+		}
+
+
+		$regras .= "\n";
+	}
+
+//	$regras .= "http_access deny all\n";
 
 	if(!empty($porExtensao)){
-		$regras .= " {$ACLporExtensao}"; 
+	    $regras .= "http_access allow all";
+	    $regras .= "http_access deny {$ACLporExtensao}";
+	}else{
+	    $regras .= "http_access deny all\n";
 	}
-
-	if(!empty($porHora)){
-		$regras .= " {$ACLporHora}"; 		
-	}
-
-	if(!empty($sitesPorIP)){
-		$regras .= " {$ACLPorIP}";
-	}
-
-
-	$regras .= "\n";
-
-	$regras .= "http_access deny all";
 
 	$principal = new Principal();
 
@@ -125,6 +136,8 @@
 
 	//Gera arquivo de configuração do SQUID
 	FileUtil::geraArquivoConf($regras);
+
+	shell_exec(" sudo service squid3 restart ");
 
 	header('Location: ../view/principal.php');
  ?>
