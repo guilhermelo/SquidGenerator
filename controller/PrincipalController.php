@@ -101,8 +101,9 @@
 //	$regras .= "http_access deny all\n";
 
 	if(!empty($porExtensao)){
-	    $regras .= "http_access allow all";
+	    $regras .= "http_access allow all\n";
 	    $regras .= "http_access deny {$ACLporExtensao}";
+	    
 	}else{
 	    $regras .= "http_access deny all\n";
 	}

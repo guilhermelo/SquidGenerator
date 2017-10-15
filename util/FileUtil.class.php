@@ -6,7 +6,6 @@ class FileUtil {
 
 	static function abreArquivo($nomeArquivo, $regras){
 		$nomeArquivo = PATH . $nomeArquivo;
-
 		$arquivo = fopen($nomeArquivo, "w");	
 
 		fwrite($arquivo, $regras);
