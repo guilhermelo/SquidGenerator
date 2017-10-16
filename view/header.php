@@ -21,7 +21,7 @@
 			    	<a href="principal.php">Bloqueio de Acesso</a>
 			    </li>
 			    <li>
-			    	<a href="relatorio.php">Relatório</a>
+			    	<a href="reports.php">Relatório</a>
 			    </li>
 		      </ul>
 		    </div>

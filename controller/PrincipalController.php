@@ -9,7 +9,7 @@
 	$ACLporHora = "regra_porhora";
 	$ACLporExtensao = "regra_porextensao";
 	$ACLLiberados = "liberados";
-	$ACLPorIP = "ip_liberado";
+	$ACLPorIP = "ip_bloqueado";
 
 	//Variáveis globais
 	$arquivoIPSBloqueados = "ips_bloqueados"; 
@@ -47,19 +47,19 @@
 		$extensoes = "";
 
 		if(isset($extPNG)){
-			$extensoes .= " .png";
+			$extensoes .= " \\.png";
 		}
 
 		if(isset($extExe)){
-			$extensoes .= " .exe";
+			$extensoes .= " \\.exe";
 		}
 
 		if(isset($extPDF)){
-			$extensoes .= " .pdf";
+			$extensoes .= " \\.pdf";
 		}
 
 		if(isset($extGIF)){
-			$extensoes .= " .gif";
+			$extensoes .= " \\.gif";
 		}
 
 		$regras .= montaRegraPorExtensao($extensoes, $ACLporExtensao);
@@ -78,7 +78,7 @@
 		$regras .= montaRegraIPSites($sitesPorIP, $ACLPorIP);
 	}
 
-	if(empty($porExtensao)){
+	if(empty($porExtensao) && empty($sitesPorIP)){
 
 		$regras .= "http_access allow {$ACLLiberados}";
 
@@ -90,21 +90,17 @@
 			$regras .= " {$ACLporHora}";
 		}
 
-		if(!empty($sitesPorIP)){
-			$regras .= " {$ACLPorIP}";
-		}
-
-
 		$regras .= "\n";
 	}
 
-//	$regras .= "http_access deny all\n";
 
-	if(!empty($porExtensao)){
-	    $regras .= "http_access allow all\n";
-	    $regras .= "http_access deny {$ACLporExtensao}";
-	    
-	}else{
+	if(!empty($porExtensao) && !empty($sitesPorIP)){
+	    $regras .= "http_access deny {$ACLporExtensao} {$ACLPorIP}";
+	} else if(!empty($sitesPorIP)){ 
+	    $regras .= "http_access deny {$ACLPorIP}";
+	} else if(!empty($porExtensao)){
+	    $regras .= "http_access deny {$ACLporExtensao} ";
+	} else{
 	    $regras .= "http_access deny all\n";
 	}
 
