@@ -18,13 +18,21 @@
 				<div class="row">
 					<div class="col-md-2"></div>
 					<div class="col-md-4">
-						<label for="liberadosHr"><p>Sites liberados: </p></label>	
+						<label for="liberadosHr"><p>Sites: </p></label>	
 						<textarea cols="10" rows="4" class="form-control" name="sitesLiberados"><?=$p->getSitesLiberados()?></textarea>
 					</div>
-					<div class="col-md-4">
-						<label for="sitesPorIP"><p>IPs dos sites liberados: </p></label>	
+					<div class="col-md-2">
+						<label for="sitesPorIP"><p>IPs do site: </p></label>	
 						<input type="text" class="form-control" name="sitesPorIP" value="<?= $p->getIpLiberado() ?>">
 					</div>
+					<div class="col-md-2">
+						<label for="sitesPorIP" style="color: white;"><p>Selecionar</p></label>	
+						<select name="bloqIP" class="form-control">
+							<option value="lib">Liberar</option>
+							<option value="bloq">Bloquear</option>
+						</select>
+					</div>
+					<div class="col-md-2"></div>
 				</div>
 				<br/>
 				<div class="row">
@@ -41,11 +49,27 @@
 				<br/>
 				<div class="row">
 					<div class="col-md-2">
+						<select name="bloqHora" class="form-control">
+							<option value="lib">Liberar</option>
+							<option value="bloq">Bloquear</option>
+						</select>
+					</div>
+					<div class="col-md-1"></div>
+					<div class="col-md-2">
+						<select name="bloqExtensao" class="form-control">
+							<option value="lib">Liberar</option>
+							<option value="bloq">Bloquear</option>
+						</select>
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-md-2">
 						<label>Hora Inicial: </label>
 						<input type="text" name="hrInicio" value="<?= $p->getHrInicial() ?>" id="hrInicio" class="form-control" disabled>	
 					</div>
 					<div class="col-md-5">
-						<h3 style="text-align: center;">Extensões bloqueadas</h3>
+						<h3 style="text-align: center;">Extensões</h3>
 					</div>
 					<div class="col-md-5">
 						<h3 style="text-align: center;">Autenticação por Usuário</h3>
@@ -79,6 +103,30 @@
 						<label for="senha">Senha: </label>
 						<input type="text" name="senha" value="<?= $p->getSenha() ?>" id="senha" class="form-control" disabled>
 					</div>	
+				</div>
+				<div class="row">
+					<div class="col-md-2"></div>
+					<div class="col-md-1"></div>
+					<div class="col-md-1">
+						<div class="col-md-1">
+							<input type="checkbox" name="extGIF" value="extGIF" id="extGIF" disabled> MP3
+						</div>
+					</div>
+					<div class="col-md-1">
+						<div class="col-md-1">
+							<input type="checkbox" name="extGIF" value="extGIF" id="extGIF" disabled> MP4
+						</div>
+					</div>
+					<div class="col-md-1">
+						<div class="col-md-1">
+							<input type="checkbox" name="extGIF" value="extGIF" id="extGIF" disabled> JPG
+						</div>
+					</div>
+					<div class="col-md-1">
+						<div class="col-md-1">
+							<input type="checkbox" name="extGIF" value="extGIF" id="extGIF" disabled> DOCX
+						</div>
+					</div>
 				</div>
 				<br/>
 				<hr>
