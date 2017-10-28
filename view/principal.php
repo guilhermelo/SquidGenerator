@@ -7,7 +7,11 @@
 
 	$p = $principalDAO->selecionaRegras();
 
+
+	print_r($p);
+
 ?>
+		<hr>
 		<div class="container">
 			<form action="../controller/PrincipalController.php" method="POST">
 				<div class="row">
