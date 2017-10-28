@@ -91,7 +91,7 @@
 	}
 
 	function montaRegraIPSites($ip, $nomeACL){
-		$regra = "acl {$nomeACL} dst {$ip}";
+		$regra = "acl {$nomeACL} dst {$ip}/255.255.255.255\n";
 		return $regra;
 	}
  ?>
