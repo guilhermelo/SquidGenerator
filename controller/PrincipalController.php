@@ -157,6 +157,7 @@
 
 	$objeto = $principalDAO->selecionaRegras();
 
+	print_r($principal);
 	if(is_null($objeto->getSitesLiberados())) {
 		$principalDAO->insereRegras($principal);
 	}else{
