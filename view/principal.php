@@ -27,7 +27,7 @@
 						<input type="text" class="form-control" name="sitesPorIP" value="<?= $p->getIpLiberado() ?>">
 					</div>
 					<div class="col-md-2">
-						<label for="sitesPorIP" style="color: white;"><p>Selecionar</p></label>	
+						<label for="bloqIP" style="color: white;"><p>Selecionar</p></label>	
 						<select name="bloqIP" class="form-control">
 							<option value="lib">Liberar</option>
 							<option value="bloq">Bloquear</option>
