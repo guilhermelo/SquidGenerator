@@ -34,7 +34,7 @@
 	$opBloqHora = filter_input(INPUT_POST, 'bloqHora');
 	$opBloqIp = filter_input(INPUT_POST, 'bloqIp');
 	$opBloqExt = filter_input(INPUT_POST, 'bloqExtensao');
-	
+
 	$confDAO = new ConfiguracaoDAO();
 	$conf = $confDAO->selecionarConfiguracao();
 
@@ -140,8 +140,7 @@
 	}else{
 		$principal->setOpBloqHora('0');	
 	}
-	echo "<hr>";
-	print_r($opBloqIp);
+	
 	if(isset($opBloqIp) && $opBloqIp == 'lib'){
 		$principal->setOpBloqIp('1');	
 	}else{
