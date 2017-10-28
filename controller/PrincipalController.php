@@ -157,7 +157,11 @@
 
 	$objeto = $principalDAO->selecionaRegras();
 
-	print_r($principal);
+	echo "Hora: {$opBloqHora}<br>";
+	echo "IP: {$opBloqIp}<br>";
+	echo "Ext: {$opBloqExt}<br>";
+
+	//print_r($principal);
 	if(is_null($objeto->getSitesLiberados())) {
 		$principalDAO->insereRegras($principal);
 	}else{
