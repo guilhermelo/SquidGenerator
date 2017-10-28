@@ -67,10 +67,6 @@ class PrincipalDAO {
 
 	public function atualizaRegras(Principal $p){
 
-		echo "<pre>";
-		print_r($p);
-		echo "</pre>";
-
 		try{
 			$connection = Conexao::getConnection();
 

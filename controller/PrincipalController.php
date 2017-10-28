@@ -107,7 +107,7 @@
 		$regras .= "\n";
 	}
 
-
+/*
 	if(!empty($porExtensao) && !empty($sitesPorIP)){
 	    $regras .= "http_access deny {$ACLporExtensao} {$ACLPorIP}";
 	} else if(!empty($sitesPorIP)){
@@ -118,7 +118,7 @@
 	    $regras .= "http_access allow {$ACLLiberadoAUTH}";
 	} else{
 	    $regras .= "http_access deny all\n";
-	}
+	} */
 
 	$principal = new Principal();
 
@@ -135,6 +135,7 @@
 	$principal->setExtGIF(!empty($extGIF) ? "extGIF" : "");
 	$principal->setUsuario($usuario);
 	$principal->setSenha($senha);
+
 	if(isset($opBloqHora) && $opBloqHora == 'lib'){
 		$principal->setOpBloqHora('1');	
 	}else{
