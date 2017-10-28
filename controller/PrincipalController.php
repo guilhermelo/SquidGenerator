@@ -135,9 +135,23 @@
 	$principal->setExtGIF(!empty($extGIF) ? "extGIF" : "");
 	$principal->setUsuario($usuario);
 	$principal->setSenha($senha);
-	$principal->setOpBloqHora($opBloqHora);
-	$principal->setOpBloqIp($opBloqIp);
-	$principal->setOpBloqExt($opBloqExt);
+	if(isset($opBloqHora) && $opBloqHora === 'lib'){
+		$principal->setOpBloqHora('1');	
+	}else{
+		$principal->setOpBloqHora('0');	
+	}
+
+	if(isset($opBloqIp) && $opBloqIp === 'lib'){
+		$principal->setOpBloqIp('1');	
+	}else{
+		$principal->setOpBloqIp('0');	
+	}
+
+	if(isset($opBloqExt) && $opBloqExt === 'lib'){
+		$principal->setOpBloqExt('1');	
+	}else{
+		$principal->setOpBloqExt('0');	
+	}
 
 	$principalDAO = new PrincipalDAO();
 
