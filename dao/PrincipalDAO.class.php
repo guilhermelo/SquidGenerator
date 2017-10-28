@@ -77,7 +77,7 @@ class PrincipalDAO {
 			$query = "UPDATE REGRAS SET";
 			$query .= "	SITES_LIBERADOS = :sites_liberados, LIBERADO_POR_IP = :liberado_por_ip, ";
 			$query .= "	HORA_INICIAL = :hora_inicial, HORA_FINAL = :hora_final, USUARIO = :usuario, SENHA = :senha, ";
-			$query .= "	FG_POR_HORA = :fg_por_hora, FG_POR_EXTENSAO = :fg_por_extensao, FG_POR_AUTENTICACAO = :fg_por_autenticacao, EXT_LIBERADAS := :ext_liberadas";
+			$query .= "	FG_POR_HORA = :fg_por_hora, FG_POR_EXTENSAO = :fg_por_extensao, FG_POR_AUTENTICACAO = :fg_por_autenticacao, EXT_LIBERADAS := :ext_liberadas, ";
 
 			$query .= " OPT_POR_HORA = :opBloqHora, OPT_POR_IP = :opBloqIp, OPT_POR_EXT = :opBloqExt";
 
