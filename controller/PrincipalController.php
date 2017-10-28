@@ -170,5 +170,5 @@
 
 	shell_exec(" sudo service squid3 restart ");
 
-	header('Location: ../view/principal.php');
+	//header('Location: ../view/principal.php');
  ?>
