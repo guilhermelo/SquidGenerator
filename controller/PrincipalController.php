@@ -10,6 +10,7 @@
 	$ACLporExtensao = "regra_porextensao";
 	$ACLLiberados = "liberados";
 	$ACLPorIP = "ip_bloqueado";
+	$ACLLiberadoAUTH = "liberado_auth";
 
 	//Variáveis globais
 	$arquivoIPSBloqueados = "ips_bloqueados"; 
@@ -96,10 +97,12 @@
 
 	if(!empty($porExtensao) && !empty($sitesPorIP)){
 	    $regras .= "http_access deny {$ACLporExtensao} {$ACLPorIP}";
-	} else if(!empty($sitesPorIP)){ 
+	} else if(!empty($sitesPorIP)){
 	    $regras .= "http_access deny {$ACLPorIP}";
 	} else if(!empty($porExtensao)){
 	    $regras .= "http_access deny {$ACLporExtensao} ";
+	} else if(!empty($usuario) && !empty($senha)){
+	    $regras .= "http_access allow {$ACLLiberadoAUTH}";
 	} else{
 	    $regras .= "http_access deny all\n";
 	}

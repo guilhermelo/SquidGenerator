@@ -60,8 +60,7 @@
 
 		//Executa comando no shell para criar usuário
 		$retorno = shell_exec("htpasswd /etc/squid3/squid_passwd {$usuario}");
-			
-		echo $retorno;
+
 		// Cria senha
 		shell_exec("{$senha}");
 
@@ -70,7 +69,7 @@
 		$regraAutenticacao .= "auth_param basic realm squid \n";
 		$regraAutenticacao .= "auth_param basic program /usr/lib/squid3/basic_ncsa_auth /etc/squid3/squid_passwd \n";
 
-		$regraAutenticacao .= "acl autenticados proxy_auth REQUIRED \n";
+		$regraAutenticacao .= "acl liberado_auth proxy_auth REQUIRED \n";
 
 		return $regraAutenticacao;
 	}
