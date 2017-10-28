@@ -34,9 +34,7 @@
 	$opBloqHora = filter_input(INPUT_POST, 'bloqHora');
 	$opBloqIp = filter_input(INPUT_POST, 'bloqIp');
 	$opBloqExt = filter_input(INPUT_POST, 'bloqExtensao');
-
-	echo "IP:" . filter_input(INPUT_POST, 'bloqIp');
-
+	
 	$confDAO = new ConfiguracaoDAO();
 	$conf = $confDAO->selecionarConfiguracao();
 
