@@ -29,8 +29,8 @@
 					<div class="col-md-2">
 						<label for="bloqIP" style="color: white;"><p>Selecionar</p></label>	
 						<select name="bloqIP" class="form-control">
-							<option value="lib">Liberar</option>
-							<option value="bloq">Bloquear</option>
+							<option value="lib" <?= $p->getOpBloqIp() === "1" ? "selected" : "" ?>>Liberar</option>
+							<option value="bloq" <?= $p->getOpBloqIp() === "0" ? "selected" : "" ?>>Bloquear</option>
 						</select>
 					</div>
 					<div class="col-md-2"></div>
@@ -51,15 +51,19 @@
 				<div class="row">
 					<div class="col-md-2">
 						<select name="bloqHora" class="form-control">
-							<option value="lib">Liberar</option>
-							<option value="bloq">Bloquear</option>
+							<option value="lib" <?= $p->getOpBloqHora() === "1" ? "selected" : "" ?>>
+								Liberar
+							</option>
+							<option value="bloq" <?= $p->getOpBloqHora() === "0" ? "selected" : "" ?>>
+								Bloquear
+							</option>
 						</select>
 					</div>
 					<div class="col-md-1"></div>
 					<div class="col-md-2">
 						<select name="bloqExtensao" class="form-control">
-							<option value="lib">Liberar</option>
-							<option value="bloq">Bloquear</option>
+							<option value="lib" <?= $p->getOpBloqExt() === "1" ? "selected" : "" ?>>Liberar</option>
+							<option value="bloq" <?= $p->getOpBloqExt() === "0" ? "selected" : "" ?>>Bloquear</option>
 						</select>
 					</div>
 				</div>
