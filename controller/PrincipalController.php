@@ -30,6 +30,9 @@
 	$usuario = filter_input(INPUT_POST, 'usuario');
 	$senha = filter_input(INPUT_POST, 'senha');
 
+	//dropdowns de escolhas
+	$opBloqHora = filter_input(INPUT_POST, 'bloqHora');
+
 	$confDAO = new ConfiguracaoDAO();
 	$conf = $confDAO->selecionarConfiguracao();
 
@@ -81,7 +84,15 @@
 
 	if(empty($porExtensao) && empty($sitesPorIP)){
 
-		$regras .= "http_access allow {$ACLLiberados}";
+		$denyOrAllow = '';
+
+		if(isset($opBloqHora) && $opBloqHora === 'lib'){
+			$denyOrAllow = 'allow';
+		}else if (isset($opBloqHora) && $opBloqHora === 'bloq'){
+			$denyOrAllow = 'deny';
+		}
+
+		$regras .= "http_access {$denyOrAllow} {$ACLLiberados}";
 
 		/*if(!empty($porExtensao)){
 			$regras .= " {$ACLporExtensao}";
