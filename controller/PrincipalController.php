@@ -135,19 +135,19 @@
 	$principal->setExtGIF(!empty($extGIF) ? "extGIF" : "");
 	$principal->setUsuario($usuario);
 	$principal->setSenha($senha);
-	if(isset($opBloqHora) && $opBloqHora === 'lib'){
+	if(isset($opBloqHora) && $opBloqHora == 'lib'){
 		$principal->setOpBloqHora('1');	
 	}else{
 		$principal->setOpBloqHora('0');	
 	}
 
-	if(isset($opBloqIp) && $opBloqIp === 'lib'){
+	if(isset($opBloqIp) && $opBloqIp == 'lib'){
 		$principal->setOpBloqIp('1');	
 	}else{
 		$principal->setOpBloqIp('0');	
 	}
 
-	if(isset($opBloqExt) && $opBloqExt === 'lib'){
+	if(isset($opBloqExt) && $opBloqExt == 'lib'){
 		$principal->setOpBloqExt('1');	
 	}else{
 		$principal->setOpBloqExt('0');	
