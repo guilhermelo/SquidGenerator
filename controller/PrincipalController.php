@@ -32,6 +32,8 @@
 
 	//dropdowns de escolhas
 	$opBloqHora = filter_input(INPUT_POST, 'bloqHora');
+	$opBloqIp = filter_input(INPUT_POST, 'bloqIp');
+	$opBloqExt = filter_input(INPUT_POST, 'bloqExtensao');
 
 	$confDAO = new ConfiguracaoDAO();
 	$conf = $confDAO->selecionarConfiguracao();
@@ -133,6 +135,9 @@
 	$principal->setExtGIF(!empty($extGIF) ? "extGIF" : "");
 	$principal->setUsuario($usuario);
 	$principal->setSenha($senha);
+	$principal->setOpBloqHora($opBloqHora);
+	$principal->setOpBloqIp($opBloqIp);
+	$principal->setOpBloqExt($opBloqExt);
 
 	$principalDAO = new PrincipalDAO();
 

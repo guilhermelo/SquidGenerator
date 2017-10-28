@@ -15,6 +15,9 @@ class Principal {
 	private $extGIF;
 	private $usuario;
 	private $senha;
+    private $opBloqHora;
+    private $opBloqIp;
+    private $opBloqExt;
 
 
 	function __construct() {}
@@ -277,6 +280,37 @@ class Principal {
         $this->usuario = $usuario;
 
         return $this;
+    }
+
+
+    public function setOpBloqHora($opBloqHora){
+        $this->opBloqHora = $opBloqHora;
+
+        return $this;
+    }
+
+    public function getOpBloqHora(){
+        return $this->opBloqHora;
+    }
+
+    public function setOpBloqExt($opBloqExt){
+        $this->opBloqExt = $opBloqExt;
+
+        return $this;
+    }
+
+    public function getOpBloqExt(){
+        return $this->opBloqHora;
+    }
+
+    public function setOpBloqIp($opBloqIp){
+        $this->opBloqIp = $opBloqIp;
+
+        return $this;
+    }
+
+    public function getOpBloqIp(){
+        return $this->opBloqIp;
     }
 }
 
