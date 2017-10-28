@@ -69,7 +69,7 @@ class PrincipalDAO {
 
 		echo "<pre>";
 		print_r($p);
-		echo "</pre>"
+		echo "</pre>";
 
 		try{
 			$connection = Conexao::getConnection();
