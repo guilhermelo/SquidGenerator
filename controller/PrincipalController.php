@@ -86,8 +86,6 @@
 
 	if(empty($porExtensao) && empty($sitesPorIP)){
 
-		$denyOrAllow = '';
-
 		if(isset($opBloqHora) && $opBloqHora === 'lib'){
 			$denyOrAllow = 'allow';
 		}else if (isset($opBloqHora) && $opBloqHora === 'bloq'){
@@ -107,18 +105,23 @@
 		$regras .= "\n";
 	}
 
-/*
+
 	if(!empty($porExtensao) && !empty($sitesPorIP)){
 	    $regras .= "http_access deny {$ACLporExtensao} {$ACLPorIP}";
 	} else if(!empty($sitesPorIP)){
-	    $regras .= "http_access deny {$ACLPorIP}";
+
+		if(isset($opBloqIp) && $opBloqIp === 'lib'){
+			$denyOrAllow = 'allow';
+		}else{
+			$denyOrAllow = 'false';
+		}
+
+	    $regras .= "http_access {$denyOrAllow} {$ACLPorIP}";
 	} else if(!empty($porExtensao)){
 	    $regras .= "http_access deny {$ACLporExtensao} ";
 	} else if(!empty($usuario) && !empty($senha)){
 	    $regras .= "http_access allow {$ACLLiberadoAUTH}";
-	} else{
-	    $regras .= "http_access deny all\n";
-	} */
+	}
 
 	$principal = new Principal();
 
