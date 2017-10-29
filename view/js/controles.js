@@ -60,6 +60,7 @@ porExtensao.addEventListener('click', function(){
 		document.getElementById('extMP4').disabled = true;
 		document.getElementById('extJPG').disabled = true;
 		document.getElementById('extDOCX').disabled = true;
+		//teste
 	}
 });
 
