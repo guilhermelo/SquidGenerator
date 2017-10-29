@@ -32,7 +32,7 @@
 
 	//dropdowns de escolhas
 	$opBloqHora = filter_input(INPUT_POST, 'bloqHora');
-	$opBloqIp = filter_input(INPUT_POST, 'bloqIp');
+	$opBloqIp = filter_input(INPUT_POST, 'bloqIP');
 	$opBloqExt = filter_input(INPUT_POST, 'bloqExtensao');
 
 	$confDAO = new ConfiguracaoDAO();
