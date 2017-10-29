@@ -27,6 +27,12 @@
 	$extExe = filter_input(INPUT_POST, 'extExe');
 	$extPDF = filter_input(INPUT_POST, 'extPDF');
 	$extGIF = filter_input(INPUT_POST, 'extGIF');
+	$extMP3 = filter_input(INPUT_POST, 'extMP3');
+	$extMP4 = filter_input(INPUT_POST, 'extMP4');
+	$extJPG = filter_input(INPUT_POST, 'extJPG');
+	$extDOCX = filter_input(INPUT_POST, 'extDOCX');
+
+
 	$usuario = filter_input(INPUT_POST, 'usuario');
 	$senha = filter_input(INPUT_POST, 'senha');
 
@@ -66,6 +72,22 @@
 
 		if(isset($extGIF)){
 			$extensoes .= " \\.gif";
+		}
+
+		if(isset($extMP3)){
+			$extensoes .= " \\.mp3";
+		}
+
+		if(isset($extMP4)){
+			$extensoes .= " \\.mp4";
+		}
+
+		if(isset($extJPG)){
+			$extensoes .= " \\.jpg";
+		}
+
+		if(isset($extDOCX)){
+			$extensoes .= " \\.docx";
 		}
 
 		$regras .= montaRegraPorExtensao($extensoes, $ACLporExtensao);
@@ -136,6 +158,12 @@
 	$principal->setExtPNG(!empty($extPNG) ? "extPNG" : "");
 	$principal->setExtPDF(!empty($extPDF) ? "extPDF" : "");
 	$principal->setExtGIF(!empty($extGIF) ? "extGIF" : "");
+	$principal->setExtGIF(!empty($extmp) ? "extGIF" : "");
+	$principal->setExtGIF(!empty($extMP3) ? "extGIF" : "");
+	$principal->setExtGIF(!empty($extJPG) ? "extGIF" : "");
+	$principal->setExtGIF(!empty($extDOCX) ? "extGIF" : "");
+
+
 	$principal->setUsuario($usuario);
 	$principal->setSenha($senha);
 

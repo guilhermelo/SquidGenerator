@@ -118,22 +118,22 @@
 					<div class="col-md-1"></div>
 					<div class="col-md-1">
 						<div class="col-md-1">
-							<input type="checkbox" name="extGIF" value="extGIF" id="extGIF" disabled> MP3
+							<input type="checkbox" name="extMP3" value="extMP3" id="extMP3" disabled  <?= !empty($p->getExtMP3()) ? "checked" : "" ?>> MP3
 						</div>
 					</div>
 					<div class="col-md-1">
 						<div class="col-md-1">
-							<input type="checkbox" name="extGIF" value="extGIF" id="extGIF" disabled> MP4
+							<input type="checkbox" name="extMP4" value="extMP4" id="extMP4" disabled <?= !empty($p->getExtMP4()) ? "checked" : "" ?>> MP4
 						</div>
 					</div>
 					<div class="col-md-1">
 						<div class="col-md-1">
-							<input type="checkbox" name="extGIF" value="extGIF" id="extGIF" disabled> JPG
+							<input type="checkbox" name="extJPG" value="extJPG" id="extJPG" disabled  <?= !empty($p->getExtJPG()) ? "checked" : "" ?>> JPG
 						</div>
 					</div>
 					<div class="col-md-1">
 						<div class="col-md-1">
-							<input type="checkbox" name="extGIF" value="extGIF" id="extGIF" disabled> DOCX
+							<input type="checkbox" name="extDOCX" value="extDOCX" id="extDOCX" disabled <?= !empty($p->getExtDOCX()) ? "checked" : "" ?>> DOCX
 						</div>
 					</div>
 				</div>

@@ -13,6 +13,10 @@ class Principal {
 	private $extEXE;
 	private $extPDF;
 	private $extGIF;
+    private $extMP3;
+    private $extMP4;
+    private $extJPG;
+    private $extDOCX;
 	private $usuario;
 	private $senha;
     private $opBloqHora;
@@ -311,6 +315,42 @@ class Principal {
 
     public function getOpBloqIp(){
         return $this->opBloqIp;
+    }
+
+    public function getExtMP3()
+    {
+        return $this->extMP3;
+    }
+
+    public function setExtMP3($extMP3)
+    {
+        $this->extMP3 = $extMP3;
+
+        return $this;
+    }
+
+    public function getExtMP4()
+    {
+        return $this->extMP4;
+    }
+
+    public function setExtMP4($extMP4)
+    {
+        $this->extMP4 = $extMP4;
+
+        return $this;
+    }
+
+    public function getExtDOCX()
+    {
+        return $this->extDOCX;
+    }
+
+    public function setExtDOCX($extDOCX)
+    {
+        $this->extDOCX = $extDOCX;
+
+        return $this;
     }
 }
 

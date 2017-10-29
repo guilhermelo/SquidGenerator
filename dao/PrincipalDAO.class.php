@@ -55,6 +55,22 @@ class PrincipalDAO {
 				$extensoes .= (strlen($extensoes) > 0) ? ";{$p->getExtGIF()}" : "{$p->getExtGIF()}";
 			}
 
+			if(!empty($p->getExtMP3())){
+				$extensoes .= (strlen($extensoes) > 0) ? ";{$p->getExtMP3()}" : "{$p->getExtMP3()}";
+			}
+
+			if(!empty($p->getExtMP4())){
+				$extensoes .= (strlen($extensoes) > 0) ? ";{$p->getExtMP4()}" : "{$p->getExtMP4()}";
+			}
+
+			if(!empty($p->getExtJPG())){
+				$extensoes .= (strlen($extensoes) > 0) ? ";{$p->getExtJPG()}" : "{$p->getExtJPG()}";
+			}
+
+			if(!empty($p->getExtDOCX())){
+				$extensoes .= (strlen($extensoes) > 0) ? ";{$p->getExtDOCX()}" : "{$p->getExtDOCX()}";
+			}
+
 			$stmt->bindValue(':ext_liberadas', $extensoes);
 
 			$stmt->execute();
@@ -109,6 +125,23 @@ class PrincipalDAO {
 				$extensoes .= (strlen($extensoes) > 0) ? ";{$p->getExtGIF()}" : "{$p->getExtGIF()}";
 			}
 
+			if(!empty($p->getExtMP3())){
+				$extensoes .= (strlen($extensoes) > 0) ? ";{$p->getExtMP3()}" : "{$p->getExtMP3()}";
+			}
+
+			if(!empty($p->getExtMP4())){
+				$extensoes .= (strlen($extensoes) > 0) ? ";{$p->getExtMP4()}" : "{$p->getExtMP4()}";
+			}
+
+			if(!empty($p->getExtJPG())){
+				$extensoes .= (strlen($extensoes) > 0) ? ";{$p->getExtJPG()}" : "{$p->getExtJPG()}";
+			}
+
+			if(!empty($p->getExtDOCX())){
+				$extensoes .= (strlen($extensoes) > 0) ? ";{$p->getExtDOCX()}" : "{$p->getExtDOCX()}";
+			}
+
+
 			$stmt->bindValue(':ext_liberadas', $extensoes);
 
 			$stmt->execute();
@@ -162,6 +195,14 @@ class PrincipalDAO {
 						$p->setExtGIF($valor);
 					}else if($valor === "extEXE"){
 						$p->setExtEXE($valor);
+					}else if($valor === "extMP3"){
+						$p->setExtMP3($valor);
+					}else if($valor === "extMP4"){
+						$p->setExtMP4($valor);
+					}else if($valor === "extJPG"){
+						$p->setExtJPG($valor);
+					}else if($valor === "extDOCX"){
+						$p->setExtDOCX($valor);
 					}
 				}
 			}
