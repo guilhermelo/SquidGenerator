@@ -113,7 +113,7 @@
 		if(isset($opBloqIp) && $opBloqIp === 'lib'){
 			$denyOrAllow = 'allow';
 		}else{
-			$denyOrAllow = 'false';
+			$denyOrAllow = 'deny';
 		}
 
 	    $regras .= "http_access {$denyOrAllow} {$ACLPorIP}";
