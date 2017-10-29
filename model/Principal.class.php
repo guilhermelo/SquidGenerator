@@ -341,7 +341,7 @@ class Principal {
         return $this;
     }
 
-    public function setExtJPG($extDOCX)
+    public function setExtJPG($extJPG)
     {
         $this->extJPG = $extJPG;
 
