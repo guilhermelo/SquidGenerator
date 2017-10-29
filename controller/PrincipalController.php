@@ -140,7 +140,14 @@
 
 	    $regras .= "http_access {$denyOrAllow} {$ACLPorIP}";
 	} else if(!empty($porExtensao)){
-	    $regras .= "http_access deny {$ACLporExtensao} ";
+
+		if(isset($opBloqExt) && $opBloqExt === 'lib'){
+			$denyOrAllow = 'allow';
+		}else{
+			$denyOrAllow = 'deny';
+		}
+
+	    $regras .= "http_access {$denyOrAllow} {$ACLporExtensao} ";
 	} else if(!empty($usuario) && !empty($senha)){
 	    $regras .= "http_access allow {$ACLLiberadoAUTH}";
 	}
