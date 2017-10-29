@@ -106,7 +106,7 @@
 		$regras .= montaRegraIPSites($sitesPorIP, $ACLPorIP);
 	}
 
-	if(empty($porExtensao) && empty($sitesPorIP)){
+	if(empty($porExtensao) && empty($sitesPorIP) && !empty($sitesLiberados)){
 
 		if(isset($opBloqHora) && $opBloqHora === 'lib'){
 			$denyOrAllow = 'allow';
