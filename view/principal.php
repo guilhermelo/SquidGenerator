@@ -128,7 +128,7 @@
 					</div>
 					<div class="col-md-1">
 						<div class="col-md-1">
-							<input type="checkbox" name="extJPG" value="extJPG" id="extJPG" disabled  <?= !empty($p->getExtJPG()) ? "checked" : "" ?>> JPG
+							<input type="checkbox" name="extJPG" value="extJPG" id="extJPG" disabled > JPG
 						</div>
 					</div>
 					<div class="col-md-1">
