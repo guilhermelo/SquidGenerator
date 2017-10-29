@@ -158,10 +158,10 @@
 	$principal->setExtPNG(!empty($extPNG) ? "extPNG" : "");
 	$principal->setExtPDF(!empty($extPDF) ? "extPDF" : "");
 	$principal->setExtGIF(!empty($extGIF) ? "extGIF" : "");
-	$principal->setExtGIF(!empty($extmp) ? "extGIF" : "");
-	$principal->setExtGIF(!empty($extMP3) ? "extGIF" : "");
-	$principal->setExtGIF(!empty($extJPG) ? "extGIF" : "");
-	$principal->setExtGIF(!empty($extDOCX) ? "extGIF" : "");
+	$principal->setExtMP3(!empty($extMP3) ? "extMP3" : "");
+	$principal->setExtMP4(!empty($extMP4) ? "extMP4" : "");
+	$principal->setExtJPG(!empty($extJPG) ? "extJPG" : "");
+	$principal->setExtDOCX(!empty($extDOCX) ? "extDOCX" : "");
 
 
 	$principal->setUsuario($usuario);
