@@ -56,6 +56,8 @@
 		// Cria arquivo pra guardar usuário e senha
 		$senha = shell_exec("sudo touch /etc/squid3/squid_passwd");
 
+//		shell_exec("sudo chmod 777 squid_passwd");
+
 		//Executa comando no shell para criar usuário
 		$retorno = shell_exec("htpasswd /etc/squid3/squid_passwd {$usuario}");
 
