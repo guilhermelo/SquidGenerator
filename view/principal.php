@@ -7,6 +7,10 @@
 
 	$p = $principalDAO->selecionaRegras();
 
+	echo "<pre>";
+	print_r($p);
+	echo "</pre>";
+
 ?>
 		<hr>
 		<div class="container">
