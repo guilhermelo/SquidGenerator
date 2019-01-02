@@ -1,4 +1,4 @@
-#SquidGenerator
+<b>SquidGenerator</b>
 
 Projeto desenvolvido na disciplina de Tópicos Avançados em Redes.
 
